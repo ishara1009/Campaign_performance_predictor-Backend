@@ -28,10 +28,20 @@ class ExplainabilityTip(BaseModel):
     hashtags: list[str] = []
 
 
+class GroqInsights(BaseModel):
+    hashtags: list[str] = []
+    peak_times: list[str] = []
+    best_dates: list[str] = []
+    likes_explanation: str = ""
+    comments_explanation: str = ""
+    shares_explanation: str = ""
+
+
 class PredictionResponse(BaseModel):
     id: Optional[str] = None
     predictions: PredictionResult
     explainability: list[ExplainabilityTip]
+    groq_insights: GroqInsights = GroqInsights()
 
 
 class OCRResponse(BaseModel):
